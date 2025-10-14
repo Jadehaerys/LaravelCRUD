@@ -11,10 +11,11 @@ class House extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Bedrooms',
-        'Bathrooms',
-        'Price',
-        'Address',
+        'title',
+        'bedrooms',
+        'bathrooms',
+        'price',
+        'address',
     ];
-    
+
 }

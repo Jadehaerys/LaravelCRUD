@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
-            $table->integer('Bedrooms');
-            $table->integer('Bathrooms');
-            $table->decimal('Price', 10, 2);
-            $table->string('Address');
+            $table->string('title');
+            $table->integer('bedrooms');
+            $table->integer('bathrooms');
+            $table->decimal('price', 10, 2);
+            $table->string('address');
             $table->timestamps();
         });
     }
