@@ -32,4 +32,27 @@ class HouseController extends Controller
         $house = House::findOrFail($id);
         return view('houses.details', compact('house'));
     }
+    public function update(Request $request, $id) {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'bedrooms' => 'required|integer|min:0',
+            'bathrooms' => 'required|integer|min:0',
+            'price' => 'required|numeric|min:0',
+            'address' => 'required|string|max:255',
+        ]);
+
+        $house = House::findOrFail($id);
+        $house->update($validated);
+        return redirect()->route('houses.index')->with('success', 'House updated successfully.');
+    }
+    public function edit($id) {
+        $house = House::findOrFail($id);
+        return view('houses.edit', compact('house'));
+    }
+    public function destroy($id) {
+        $house = House::findOrFail($id);
+        $house->delete();
+        return redirect()->route('houses.index')->with('success', 'House deleted successfully.');
+    }
+
 }
