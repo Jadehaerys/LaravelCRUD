@@ -7,8 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    
-
     <div class="container">
         <h1 class="my-4">Houses For Sale</h1>
         <div class="row">
@@ -29,6 +27,11 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between">
                             <a href="{{ route('houses.details', $house->id) }}" class="btn btn-primary">View Details</a>
+                            <form action="{{ route('houses.destroy', $house->id) }}" method="POST" class="mt-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this house?');">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

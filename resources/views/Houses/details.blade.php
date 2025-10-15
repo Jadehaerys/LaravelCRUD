@@ -40,11 +40,6 @@
 
             <div class="mt-4">
                 <a href="{{ route('houses.edit', $house->id) }}" class="btn btn-warning w-100 big-btn">Edit House</a>
-                <form action="{{ route('houses.destroy', $house->id) }}" method="POST" class="mt-2">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger w-100 big-btn" onclick="return confirm('Are you sure you want to delete this house?');">Delete House</button>
-                </form>
                 <a href="{{ route('houses.index') }}" class="btn btn-primary w-100 big-btn">Back to Listings</a>
             </div>
         </div>
